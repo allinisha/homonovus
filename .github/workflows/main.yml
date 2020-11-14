@@ -41,7 +41,7 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./homonovus.zip
         asset_name: homonovus.zip
-        asset_content_type: application/x-tgz
+        asset_content_type: application/zip
 
     # 部署到服务器
     - name: Deploy
@@ -54,6 +54,6 @@ jobs:
         script: |
           cd /home/website/homonovus
           rm -rf
-          wget https://github.com/allinisha/homonovusClient/releases/latest/download/homonovus.zip -O homonovus.zip
+          wget https://github.com/allinisha/homonovus/releases/latest/download/homonovus.zip -O homonovus.zip
           upzip homonovus.zip
           pm2 reload
