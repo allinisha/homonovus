@@ -17,7 +17,7 @@ jobs:
     - name: Build
       uses: actions/setup-node@master
     - run: yarn install
-    - run: yarn build
+    - run: yarn run build
     - run: zip -q -r dist.zip /build
 
     # 发布 Release
