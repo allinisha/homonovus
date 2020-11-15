@@ -15,10 +15,10 @@ jobs:
 
     # 打包构建
     - name: Build
-      uses: actions/setup-node@master
+    - uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install -g yarn    
+        node-version: '10.x'
+        registry-url: <registry url>
     - run: |
         yarn
         yarn build
