@@ -66,7 +66,9 @@ checkBrowsers(paths.appPath, isInteractive)
   })
   .then(
     ({ stats, previousFileSizes, warnings }) => {
+      console.log(111111)
       if (warnings.length) {
+        console.log(22222);
         console.log(chalk.yellow('Compiled with warnings.\n'));
         console.log(warnings.join('\n\n'));
         console.log(
@@ -79,10 +81,11 @@ checkBrowsers(paths.appPath, isInteractive)
             chalk.cyan('// eslint-disable-next-line') +
             ' to the line before.\n'
         );
+        console.log(333333);
       } else {
         console.log(chalk.green('Compiled successfully.\n'));
       }
-
+      console.log(444444);
       console.log('File sizes after gzip:\n');
       printFileSizesAfterBuild(
         stats,
@@ -91,7 +94,7 @@ checkBrowsers(paths.appPath, isInteractive)
         WARN_AFTER_BUNDLE_GZIP_SIZE,
         WARN_AFTER_CHUNK_GZIP_SIZE
       );
-      console.log();
+      
 
       const appPackage = require(paths.appPackageJson);
       const publicUrl = paths.publicUrl;
