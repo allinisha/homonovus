@@ -15,13 +15,9 @@ jobs:
 
     # 打包构建
     - name: Build
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
-        registry-url: <registry url>
-    - run: |
-        yarn
-        yarn build
+      uses: actions/setup-node@master
+    - run: yarn install
+    - run: yarn build
     - run: zip -q -r dist.zip /build
 
     # 发布 Release
