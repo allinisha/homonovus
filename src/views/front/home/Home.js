@@ -33,22 +33,22 @@ export default class Home extends React.Component {
     this.getList();
   }
   getList = () => {
-    this.setState({
-      list: mockData.data.list,
-      total: mockData.data.total
-    });
-    // request.post('articleList', {
-    //   params: {
-    //     page: this.state.page,
-    //     rows: this.state.rows
-    //   }
-    // })
-    //   .then(res => {
-    //     this.setState({
-    //       list: res.data.data.list,
-    //       total: res.data.data.total
-    //     });
-    //   })
+    // this.setState({
+    //   list: mockData.data.list,
+    //   total: mockData.data.total
+    // });
+    request.post('articleList', {
+      params: {
+        page: this.state.page,
+        rows: this.state.rows
+      }
+    })
+      .then(res => {
+        this.setState({
+          list: res.data.data.list,
+          total: res.data.data.total
+        });
+      })
   }
   pageChange = current => {
     this.setState({
